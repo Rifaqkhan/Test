@@ -7,16 +7,16 @@ Node.js (v22 or higher)
 
 Download Node.js
 Verify installation with:
-node -v
-npm -v
+node -v  +
+npm -v  +
 npm (comes with Node.js)
 
 Install Dependencies
 Install the required dependencies:
-npm install
-npm install cypress
-npm install cypress-cucumber-preprocessor 
-npm install cypress-real-events --save-dev
+npm install +
+npm install cypress +
+npm install cypress-cucumber-preprocessor +
+npm install cypress-real-events --save-dev +
 npm install cypress-iframe --save-dev 
 
 check that cypress is install and running properly
@@ -30,7 +30,7 @@ add this after dependencies
     "step_definitions": "cypress/e2e/stepDefinitions/*"
   }
 
-add these settings in cypress.config.js
+add these settings in cypress.config.js (if its not there)
 
 const { defineConfig } = require("cypress");
 const cucumber = require('cypress-cucumber-preprocessor').default
