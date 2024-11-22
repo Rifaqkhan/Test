@@ -23,3 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('allowCookiesIfNecessary', () => {
+    cy.get('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll').click();
+ });
+ 
+ Cypress.Commands.add('waitForPageLoading', () => {
+    cy.get('.atomic-pre-loader').should('exist');
+    cy.get('.atomic-pre-loader').should('not.exist');
+ });
+ 
+ Cypress.Commands.add('getIframeBody', (iframeLocator) => {
+    // get the iframe > document > body
+    // and retry until the body element is not empty
+    return (
+        cy
+            .get(iframeLocator)
+            .first()
+            .its('0.contentDocument.body')
+            .should('not.be.empty')
+            // wraps "body" DOM element to allow
+            // chaining more Cypress commands, like ".find(...)"
+            .then(cy.wrap)
+    );
+ });

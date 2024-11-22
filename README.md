@@ -16,6 +16,8 @@ Install the required dependencies:
 npm install
 npm install cypress
 npm install cypress-cucumber-preprocessor 
+npm install cypress-real-events --save-dev
+npm install cypress-iframe --save-dev 
 
 check that cypress is install and running properly
 npx cypress open
@@ -43,6 +45,7 @@ module.exports = defineConfig({
     viewportWidth: 1280, // Set your desired viewport width
     viewportHeight: 720, // Set your desired viewport height
     chromeWebSecurity: false,
+    defaultCommandTimeout: 10000,
   },
 });
 
