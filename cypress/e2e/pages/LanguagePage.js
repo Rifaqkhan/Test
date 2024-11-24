@@ -22,7 +22,7 @@ class LanguagePage {
 
     // Get the language bar
     getLanguageBar() {
-        return cy.get('.sc-hhFzXm')
+        return cy.get('[class="sc-hhFzXm ieIXVu"]')
             .should('exist');
     }
 
@@ -41,8 +41,7 @@ class LanguagePage {
 
     // Get current language from the language bar
     getCurrentLanguage() {
-        // return cy.get('.sc-hhFzXm').('have.text', 'EN|FI|EE|RU');
-        return cy.get('.sc-hhFzXm').invoke('text').should(text => {
+        return cy.get('.[class="sc-hhFzXm ieIXVu"]').invoke('text').should(text => {
             const trimmedText = text.trim();
             expect(trimmedText).to.match(/EN|FI|EE|RU/);
         });

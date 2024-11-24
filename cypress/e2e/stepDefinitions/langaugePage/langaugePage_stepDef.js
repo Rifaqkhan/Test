@@ -11,7 +11,7 @@ Given('I am on the homepage', () => {
     casino.navigate();
 });
 
-When(/^I select {string} from the language dropdown$/, (languageCode) => {
+When('I select {string} from the language dropdown', (languageCode) => {
     const languageUrls = {
         FI: 'https://www.boostcasino.com/fi',
         EE: 'https://www.boostcasino.com/ee',
@@ -20,10 +20,10 @@ When(/^I select {string} from the language dropdown$/, (languageCode) => {
     languagePage.selectLanguage(languageCode, languageUrls[languageCode]);
 });
 
-Then(/^I should see the URL as {string}$/, (expectedUrl) => {
+Then('I should see the URL as {string}', (expectedUrl) => {
     cy.url().should('eq', expectedUrl);
 });
 
-Then(/^the language bar should display {string}$/, (languageText) => {
+Then('the language bar should display {string}', (languageText) => {
     languagePage.getLanguageBar().should('include.text', languageText.toUpperCase());
 });
